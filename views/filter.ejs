@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Аттракциондарды фильтрлеу</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Kids Play</h1>
+      <nav><a href="/">Артқа</a></nav>
+    </div>
+  </header>
+  <main class="container">
+    <h2>Аттракциондарды фильтрлеу</h2>
+    <div class="filter-bar">
+      <select id="filterCategory" onchange="filterAttractions()">
+        <option value="">Барлық категориялар</option>
+        <option value="батуттар">Батуттар</option>
+        <option value="лабиринт">Лабиринт</option>
+        <option value="каруссель">Каруссель</option>
+        <option value="аквапарк">Аквапарк</option>
+      </select>
+      <input type="number" id="filterPrice" placeholder="Макс. баға (₸)" oninput="filterAttractions()">
+    </div>
+    <div class="attractions-grid" id="attractionsList">
+      <% attractions.forEach(a => { %>
+        <div class="attraction-card" data-category="<%= a.category %>" data-price="<%= a.price %>">
+          <h4><%= a.name %></h4>
+          <p class="category"><%= a.category %></p>
+          <p><%= a.description %></p>
+          <p class="price"><%= a.price %> ₸</p>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <script src="/js/main.js"></script>
+</body>
+</html>

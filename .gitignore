@@ -1,0 +1,25 @@
+# Node.js тәуелділіктері (өте үлкен, репозиторийге керек емес)
+node_modules/
+
+# Орта айнымалылары (құпия ақпараттар)
+.env
+.env.local
+.env.production
+
+# Жүйелік файлдар
+.DS_Store
+Thumbs.db
+
+# Журнал файлдары
+*.log
+npm-debug.log*
+logs/
+
+# Уақытша файлдар
+*.tmp
+*.temp
+.cache/
+
+# Редактор файлдары
+.vscode/settings.json
+.idea/

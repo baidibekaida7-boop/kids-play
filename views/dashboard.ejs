@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Kids Play</h1>
+      <nav>
+        <a href="/">Басты бет</a>
+        <a href="/add">Қосу</a>
+        <a href="/auth/logout">Шығу (<%= user.username %>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="dashboard-header">
+      <h2>Басқару панелі</h2>
+      <a href="/add" class="btn btn-primary">+ Аттракцион қосу</a>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Атауы</th>
+          <th>Категория</th>
+          <th>Жас</th>
+          <th>Баға</th>
+          <th>Күйі</th>
+          <th>Әрекеттер</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% attractions.forEach(attraction => { %>
+          <tr>
+            <td><%= attraction.name %></td>
+            <td><%= attraction.category %></td>
+            <td><%= attraction.minAge %>–<%= attraction.maxAge %></td>
+            <td><%= attraction.price %> ₸</td>
+            <td>
+              <% if (attraction.isAvailable) { %>
+                <span class="badge badge-success">Қол жетімді</span>
+              <% } else { %>
+                <span class="badge badge-danger">Жабық</span>
+              <% } %>
+            </td>
+            <td>
+              <button
+                class="btn btn-danger btn-sm"
+                onclick="deleteAttraction('<%= attraction._id %>')">
+                Жою
+              </button>
+            </td>
+          </tr>
+        <% }) %>
+
+        <% if (attractions.length === 0) { %>
+          <tr>
+            <td colspan="6" style="text-align: center;">Аттракциондар жоқ</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Kids Play</h1>
+      <nav>
+        <a href="/">Басты бет</a>
+        <a href="/prices">Бағалар</a>
+        <a href="/booking">Брондау</a>
+        <% if (user) { %>
+          <a href="/dashboard">Панель</a>
+          <a href="/auth/logout">Шығу</a>
+        <% } else { %>
+          <a href="/auth/login">Кіру</a>
+          <a href="/auth/register">Тіркелу</a>
+        <% } %>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Балаларыңызға ең жақсы демалыс!</h2>
+      <p>Қауіпсіз, қызықты және жарқын аттракциондар</p>
+    </section>
+
+    <section class="attractions">
+      <h3>Біздің аттракциондар</h3>
+      <div class="attractions-grid">
+        <% attractions.forEach(attraction => { %>
+          <div class="attraction-card">
+            <h4><%= attraction.name %></h4>
+            <p class="category"><%= attraction.category %></p>
+            <p><%= attraction.description %></p>
+            <p class="age">Жас: <%= attraction.minAge %>–<%= attraction.maxAge %></p>
+            <p class="price"><%= attraction.price %> ₸</p>
+          </div>
+        <% }) %>
+
+        <% if (attractions.length === 0) { %>
+          <p>Аттракциондар әлі қосылмаған.</p>
+        <% } %>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Kids Play — Балалар ойын орталығы</p>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
+<%# views updated %>

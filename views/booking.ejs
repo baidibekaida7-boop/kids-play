@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>Орын брондау</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Kids Play</h1>
+      <nav><a href="/">Басты бет</a><a href="/prices">Бағалар</a></nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="booking-section">
+      <h2>Орын брондау</h2>
+      <form id="bookingForm" class="form">
+        <div class="form-group">
+          <label for="name">Аты-жөніңіз</label>
+          <input type="text" id="name" name="name" placeholder="Иванов Иван" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон нөмірі</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (777) 000-00-00" required>
+        </div>
+        <div class="form-group">
+          <label for="date">Күні</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label for="package">Пакет</label>
+          <select id="package" name="package">
+            <option value="basic">Базалық — 2 500 ₸</option>
+            <option value="standard">Стандарт — 4 500 ₸</option>
+            <option value="premium">Премиум — 7 500 ₸</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="children">Балалар саны</label>
+          <input type="number" id="children" name="children" value="1" min="1" max="20">
+        </div>
+        <div class="form-group">
+          <label for="comment">Ескертпе (міндетті емес)</label>
+          <textarea id="comment" name="comment" rows="3" placeholder="Туған күн, арнайы тілектер..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Брондау</button>
+        <a href="/" class="btn btn-secondary">Болдырмау</a>
+      </form>
+    </div>
+  </main>
+  <script src="/js/main.js"></script>
+</body>
+</html>
